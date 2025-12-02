@@ -1,6 +1,6 @@
 {
   "id": "ss6",
-  "updatedAt": "11/06/2025",
+  "updatedAt": "12/02/2025",
   "name": {
     "en": "Down To Earth",
     "de": "Bodenständig",
@@ -23,6 +23,7 @@
   },
   "trader": "Shani",
   "description": {
+    "en": "Raiders have long reported peculiar-looking crates dropping down from malfunctioning ARC Probes. If we can figure out a way to crack them open, we might get a better understanding of what it is they're after.",
     "de": "Raider berichten schon lange von seltsam aussehenden Kisten, die aus defekten ARC-Sondern fallen. Wenn wir die irgendwie öffnen könnten, verstehen wir vielleicht, wonach sie suchen."
   },
   "objectives": [
@@ -104,10 +105,6 @@
     }
   ],
   "xp": 0,
-  "previousQuestIds": [
-    "ss5"
-  ],
-  "nextQuestIds": [
-    "ss9"
-  ]
+  "previousQuestIds": ["ss5"],
+  "nextQuestIds": ["ss9"]
 }
