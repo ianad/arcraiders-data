@@ -1,7 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://arctracker.io/schemas/quest.json",
-  "title": "ARC Raiders Quest",
+  "title": "ARCTracker Quest Schema",
   "description": "Schema for ARC Raiders quest data",
   "type": "object",
   "properties": {
@@ -18,28 +16,8 @@
     "name": {
       "type": "object",
       "description": "Localized quest names",
-      "properties": {
-        "en": { "type": "string" },
-        "de": { "type": "string" },
-        "fr": { "type": "string" },
-        "es": { "type": "string" },
-        "pt": { "type": "string" },
-        "pl": { "type": "string" },
-        "no": { "type": "string" },
-        "da": { "type": "string" },
-        "it": { "type": "string" },
-        "ru": { "type": "string" },
-        "ja": { "type": "string" },
-        "zh-TW": { "type": "string" },
-        "uk": { "type": "string" },
-        "zh-CN": { "type": "string" },
-        "kr": { "type": "string" },
-        "tr": { "type": "string" },
-        "hr": { "type": "string" },
-        "sr": { "type": "string" }
-      },
       "required": ["en"],
-      "additionalProperties": false
+      "additionalProperties": { "type": "string" }
     },
     "trader": {
       "type": "string",
@@ -48,27 +26,8 @@
     "description": {
       "type": "object",
       "description": "Localized quest descriptions",
-      "properties": {
-        "en": { "type": "string" },
-        "de": { "type": "string" },
-        "fr": { "type": "string" },
-        "es": { "type": "string" },
-        "pt": { "type": "string" },
-        "pl": { "type": "string" },
-        "no": { "type": "string" },
-        "da": { "type": "string" },
-        "it": { "type": "string" },
-        "ru": { "type": "string" },
-        "ja": { "type": "string" },
-        "zh-TW": { "type": "string" },
-        "uk": { "type": "string" },
-        "zh-CN": { "type": "string" },
-        "kr": { "type": "string" },
-        "tr": { "type": "string" },
-        "hr": { "type": "string" },
-        "sr": { "type": "string" }
-      },
-      "additionalProperties": false
+      "required": ["en"],
+      "additionalProperties": { "type": "string" }
     },
     "videoUrl": {
       "type": "string",
@@ -88,28 +47,8 @@
       "description": "Localized quest objectives",
       "items": {
         "type": "object",
-        "properties": {
-          "en": { "type": "string" },
-          "de": { "type": "string" },
-          "fr": { "type": "string" },
-          "es": { "type": "string" },
-          "pt": { "type": "string" },
-          "pl": { "type": "string" },
-          "no": { "type": "string" },
-          "da": { "type": "string" },
-          "it": { "type": "string" },
-          "ru": { "type": "string" },
-          "ja": { "type": "string" },
-          "zh-TW": { "type": "string" },
-          "uk": { "type": "string" },
-          "zh-CN": { "type": "string" },
-          "kr": { "type": "string" },
-          "tr": { "type": "string" },
-          "hr": { "type": "string" },
-          "sr": { "type": "string" }
-        },
         "required": ["en"],
-        "additionalProperties": false
+        "additionalProperties": { "type": "string" }
       },
       "minItems": 1
     },
@@ -206,6 +145,14 @@
       }
     }
   },
-  "required": ["id", "name", "trader", "objectives", "rewardItemIds", "xp", "updatedAt"],
+  "required": [
+    "id",
+    "name",
+    "trader",
+    "objectives",
+    "rewardItemIds",
+    "xp",
+    "updatedAt"
+  ],
   "additionalProperties": false
 }

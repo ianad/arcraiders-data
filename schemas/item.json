@@ -1,7 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://arctracker.io/schemas/item.json",
-  "title": "ARC Raiders Item",
+  "title": "ARCTracker Item Schema",
   "description": "Schema for ARC Raiders item data",
   "type": "object",
   "required": ["id", "name", "description", "type", "rarity", "updatedAt"],
@@ -13,11 +11,15 @@
     },
     "name": {
       "type": "object",
-      "description": "Localized item names"
+      "description": "Localized item names",
+      "required": ["en"],
+      "additionalProperties": { "type": "string" }
     },
     "description": {
       "type": "object",
-      "description": "Localized item descriptions"
+      "description": "Localized item descriptions",
+      "required": ["en"],
+      "additionalProperties": { "type": "string" }
     },
     "type": {
       "type": "string",
