@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://arctracker.io/schemas/item.json",
+  "title": "ARC Raiders Item",
+  "description": "Schema for ARC Raiders item data",
+  "type": "object",
+  "required": ["id", "name", "description", "type", "rarity", "updatedAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Unique item identifier in snake_case"
+    },
+    "name": {
+      "type": "object",
+      "description": "Localized item names"
+    },
+    "description": {
+      "type": "object",
+      "description": "Localized item descriptions"
+    },
+    "type": {
+      "type": "string",
+      "description": "Item type/category"
+    },
+    "rarity": {
+      "type": "string",
+      "description": "Item rarity tier"
+    },
+    "updatedAt": {
+      "type": "string",
+      "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}$",
+      "description": "Last update date in MM/DD/YYYY format"
+    }
+  },
+  "additionalProperties": true
+}
