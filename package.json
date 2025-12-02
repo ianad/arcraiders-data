@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "ajv-cli": "^5.0.0"
+  },
+  "scripts": {
+    "validate:all": "pnpm run validate:quests && pnpm run validate:items",
+    "validate:quests": "npx ajv-cli validate --all-errors -s schemas/quest.json -d \"quests/*.json\"",
+    "validate:items": "npx ajv-cli validate --all-errors -s schemas/item.json -d \"items/*.json\""
+  }
+}
