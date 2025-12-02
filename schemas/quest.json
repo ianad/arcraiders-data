@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://arctracker.io/schemas/quest.json",
+  "title": "ARC Raiders Quest",
+  "description": "Schema for ARC Raiders quest data",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Unique quest identifier in snake_case"
+    },
+    "updatedAt": {
+      "type": "string",
+      "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}$",
+      "description": "Last update date in MM/DD/YYYY format"
+    },
+    "name": {
+      "type": "object",
+      "description": "Localized quest names",
+      "properties": {
+        "en": { "type": "string" },
+        "de": { "type": "string" },
+        "fr": { "type": "string" },
+        "es": { "type": "string" },
+        "pt": { "type": "string" },
+        "pl": { "type": "string" },
+        "no": { "type": "string" },
+        "da": { "type": "string" },
+        "it": { "type": "string" },
+        "ru": { "type": "string" },
+        "ja": { "type": "string" },
+        "zh-TW": { "type": "string" },
+        "uk": { "type": "string" },
+        "zh-CN": { "type": "string" },
+        "kr": { "type": "string" },
+        "tr": { "type": "string" },
+        "hr": { "type": "string" },
+        "sr": { "type": "string" }
+      },
+      "required": ["en"],
+      "additionalProperties": false
+    },
+    "trader": {
+      "type": "string",
+      "description": "Quest giver name"
+    },
+    "description": {
+      "type": "object",
+      "description": "Localized quest descriptions",
+      "properties": {
+        "en": { "type": "string" },
+        "de": { "type": "string" },
+        "fr": { "type": "string" },
+        "es": { "type": "string" },
+        "pt": { "type": "string" },
+        "pl": { "type": "string" },
+        "no": { "type": "string" },
+        "da": { "type": "string" },
+        "it": { "type": "string" },
+        "ru": { "type": "string" },
+        "ja": { "type": "string" },
+        "zh-TW": { "type": "string" },
+        "uk": { "type": "string" },
+        "zh-CN": { "type": "string" },
+        "kr": { "type": "string" },
+        "tr": { "type": "string" },
+        "hr": { "type": "string" },
+        "sr": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "videoUrl": {
+      "type": "string",
+      "pattern": "^https://(youtu\\.be/[a-zA-Z0-9_-]+|www\\.youtube\\.com/watch\\?v=[a-zA-Z0-9_-]+)$",
+      "description": "YouTube video URL for quest guide"
+    },
+    "map": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "Array of map IDs where quest takes place"
+    },
+    "objectives": {
+      "type": "array",
+      "description": "Localized quest objectives",
+      "items": {
+        "type": "object",
+        "properties": {
+          "en": { "type": "string" },
+          "de": { "type": "string" },
+          "fr": { "type": "string" },
+          "es": { "type": "string" },
+          "pt": { "type": "string" },
+          "pl": { "type": "string" },
+          "no": { "type": "string" },
+          "da": { "type": "string" },
+          "it": { "type": "string" },
+          "ru": { "type": "string" },
+          "ja": { "type": "string" },
+          "zh-TW": { "type": "string" },
+          "uk": { "type": "string" },
+          "zh-CN": { "type": "string" },
+          "kr": { "type": "string" },
+          "tr": { "type": "string" },
+          "hr": { "type": "string" },
+          "sr": { "type": "string" }
+        },
+        "required": ["en"],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "grantedItemIds": {
+      "type": "array",
+      "description": "Items granted when quest is accepted",
+      "items": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["itemId", "quantity"],
+        "additionalProperties": false
+      }
+    },
+    "requiredItemIds": {
+      "type": "array",
+      "description": "Items required to accept or complete the quest",
+      "items": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["itemId", "quantity"],
+        "additionalProperties": false
+      }
+    },
+    "rewardItemIds": {
+      "type": "array",
+      "description": "Items rewarded upon quest completion",
+      "items": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["itemId", "quantity"],
+        "additionalProperties": false
+      }
+    },
+    "otherRequirements": {
+      "type": "array",
+      "description": "Other quest requirements (e.g., number of raids)",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tips": {
+      "type": "array",
+      "description": "Quest tips or hints",
+      "items": {
+        "type": "string"
+      }
+    },
+    "xp": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Experience points rewarded"
+    },
+    "previousQuestIds": {
+      "type": "array",
+      "description": "Quest IDs that must be completed first",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      }
+    },
+    "nextQuestIds": {
+      "type": "array",
+      "description": "Quest IDs unlocked after completion",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      }
+    }
+  },
+  "required": ["id", "name", "trader", "objectives", "rewardItemIds", "xp", "updatedAt"],
+  "additionalProperties": false
+}
